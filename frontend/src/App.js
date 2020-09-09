@@ -1,12 +1,11 @@
 import React from 'react';
+import Routes from './routes';
+
 import './App.css';
+import './Global.css';
 
 function App() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;
