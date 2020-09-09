@@ -1,0 +1,9 @@
+.flexRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+
+.titleCash {
+  width: 18px;
+}
