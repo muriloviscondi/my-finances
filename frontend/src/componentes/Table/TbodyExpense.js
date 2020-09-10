@@ -9,13 +9,13 @@ import style from './style.module.css';
 export default function TbodyExpense() {
   const [financials, setFinancials] = useState([]);
 
+  const expenses = [];
+
   useEffect(() => {
     api.get('/').then((response) => {
       setFinancials(response.data);
     });
   });
-
-  const expenses = [];
 
   financials.forEach((financial) => {
     if (financial.type.toLowerCase() === 'expense') {
@@ -42,7 +42,6 @@ export default function TbodyExpense() {
           <td>{expense.name}</td>
           <td>{expense.description}</td>
           <td>
-            R${' '}
             {Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
@@ -54,9 +53,9 @@ export default function TbodyExpense() {
             </Link>
           </td>
           <td>
-            <a onClick={() => handleDeleteExpense(expense.id)}>
+            <Link onClick={() => handleDeleteExpense(expense.id)}>
               <FiTrash2 className={style.editIcon} />
-            </a>
+            </Link>
           </td>
         </tr>
       ))}

@@ -42,7 +42,6 @@ export default function TbodyRevenue() {
           <td>{revenue.name}</td>
           <td>{revenue.description}</td>
           <td>
-            R${' '}
             {Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL',
@@ -54,9 +53,9 @@ export default function TbodyRevenue() {
             </Link>
           </td>
           <td>
-            <a onClick={() => handleDeleteRevenue(revenue.id)}>
+            <Link onClick={() => handleDeleteRevenue(revenue.id)}>
               <FiTrash2 className={style.editIcon} />
-            </a>
+            </Link>
           </td>
         </tr>
       ))}
