@@ -8,6 +8,37 @@ class SpendingController extends ResourceController
 {
 
   use ResponseTrait;
+  
+  public function options(): Response
+    {
+      return $this->response->setHeader('Access-Control-Allow-Origin', '*') //for allow any domain, insecure
+
+        ->setheader("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method")
+        ->setHeader('Access-Control-Allow-Headers', '*') //for allow any headers, insecure
+        ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE') //method allowed
+        ->setStatusCode(200); //status code
+
+        $method = $_SERVER['REQUEST_METHOD'];
+        if($method == "OPTIONS") {
+          die();
+        }
+    }
+
+    public function setResponse($body = null, $statusCode = 200): Response
+    {
+      if (is_null($body)) {
+          $body = null;
+      } elseif (!is_string($body)) {
+          $body = $this->format($body);
+      } else {
+          $body = '"' . $body . '"';
+      }
+
+      $this->response->setHeader('Access-Control-Allow-Origin', '*')
+        ->setHeader('Access-Control-Allow-Headers', '*')
+        ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+      return $this->respond($body, $statusCode);
+    }
 
   // get all spendings
   public function index()
@@ -109,4 +140,5 @@ class SpendingController extends ResourceController
     return $this->failNotFound('No data found with id ' . $id);
 
   }
+
 }
