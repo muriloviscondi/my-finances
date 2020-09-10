@@ -9,6 +9,7 @@ class SpendingController extends ResourceController
 
   use ResponseTrait;
   
+  // Resolve CORS (Cross-Origin Resource Sharing)
   public function options(): Response
     {
       return $this->response->setHeader('Access-Control-Allow-Origin', '*') //for allow any domain, insecure
@@ -24,6 +25,7 @@ class SpendingController extends ResourceController
         }
     }
 
+    // Resolve CORB (Cross-Origin Read Blocking)
     public function setResponse($body = null, $statusCode = 200): Response
     {
       if (is_null($body)) {
@@ -43,6 +45,15 @@ class SpendingController extends ResourceController
   // get all spendings
   public function index()
   {
+    // header('Access-Control-Allow-Origin: *');
+    // header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+    // header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    
+    // $method = $_SERVER['REQUEST_METHOD'];
+    // if($method == "OPTIONS") {
+    //     die();
+    // }
+
     $model = new SpendingModel();
     $data = $model->findAll();
 
