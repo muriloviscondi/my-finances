@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 
-import Cards from '../../componentes/Cards/Cards';
+import CardRevenues from '../../componentes/Cards/CardRevenues';
+import CardExpenses from '../../componentes/Cards/CardExpenses';
+import CardResults from '../../componentes/Cards/CardResults';
 import Thead from '../../componentes/Table/Thead';
 import TbodyRevenue from '../../componentes/Table/TbodyRevenue';
 import TbodyExpense from '../../componentes/Table/TbodyExpense';
@@ -13,9 +16,9 @@ export default function Financy() {
     <div className="topSpace">
       <div className="container">
         <div className="row">
-          <Cards />
-          <Cards />
-          <Cards />
+          <CardRevenues />
+          <CardExpenses />
+          <CardResults />
         </div>
 
         <div className={style.titleTable}>
@@ -39,15 +42,17 @@ export default function Financy() {
           </tbody>
         </table>
 
-        <a
-          href="/create/"
-          class="btn-floating btn-medium waves-effect waves-light teal darken-4 right fixed"
-          title="Adicionar"
-        >
-          <i className="material-icons">
-            <FiPlus style={{ fontSize: '20px' }} />
-          </i>
-        </a>
+        <div className="fixed-action-btn">
+          <Link
+            to="/create/"
+            className="btn-floating btn-medium waves-effect waves-light teal darken-4 right fixed"
+            title="Adicionar"
+          >
+            <i className="material-icons">
+              <FiPlus style={{ fontSize: '20px' }} />
+            </i>
+          </Link>
+        </div>
       </div>
     </div>
   );
