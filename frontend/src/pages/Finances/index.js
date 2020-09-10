@@ -1,6 +1,11 @@
 import React from 'react';
 
 import Cards from '../../componentes/Cards/Cards';
+import Thead from '../../componentes/Table/Thead';
+import TbodyRevenue from '../../componentes/Table/TbodyRevenue';
+import TbodyExpense from '../../componentes/Table/TbodyExpense';
+
+import style from './style.module.css';
 
 export default function Financy() {
   return (
@@ -10,33 +15,25 @@ export default function Financy() {
         <Cards />
         <Cards />
       </div>
-      <hr />
+
+      <div className={style.titleTable}>
+        <h2>Receitas / Entrada</h2>
+      </div>
 
       <table className="centered">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Item Name</th>
-            <th>Item Price</th>
-          </tr>
-        </thead>
-
+        <Thead />
         <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-          </tr>
+          <TbodyRevenue />
+        </tbody>
+      </table>
+
+      <div className={style.titleTable}>
+        <h2>Despesas / Saida</h2>
+      </div>
+      <table className="centered">
+        <Thead />
+        <tbody>
+          <TbodyExpense />
         </tbody>
       </table>
     </div>
