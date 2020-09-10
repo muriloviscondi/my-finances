@@ -1,9 +1,7 @@
-.flexRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between !important;
+.titleTable {
+  border-bottom: 1px solid;
 }
 
-.titleCash {
-  width: 18px;
+.titleTable h2 {
+  font-size: 25px;
 }
