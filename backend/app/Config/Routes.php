@@ -32,11 +32,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
-$routes->get('spending',               				'SpendingController::index');
-$routes->get('spending/(:segment)',     			'SpendingController::show/$1');
-$routes->post('spending/create',        			'SpendingController::create');
-$routes->put('spending/update/(:segment)', 		'SpendingController::update/$1');
-$routes->delete('spending/delete/(:segment)', 'SpendingController::delete/$1');
+$routes->get('/',               			'SpendingController::index');
+$routes->get('/(:segment)',     			'SpendingController::show/$1');
+$routes->post('/create',        			'SpendingController::create');
+$routes->put('/update/(:segment)', 		'SpendingController::update/$1');
+$routes->delete('/delete/(:segment)', 'SpendingController::delete/$1');
 
 /**
  * --------------------------------------------------------------------
